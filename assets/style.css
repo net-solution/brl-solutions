@@ -39,7 +39,6 @@ header {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    padding: 15px;
     width: 100%;
     color: #111;
     fill: #111;
@@ -55,9 +54,6 @@ header {
     color: var(--orange);
     fill: var(--orange);
     text-decoration: underline;
-}
-.branding .contact {
-    /* padding: 25px; */
 }
 .branding .contact .primary {
     letter-spacing: -1.2pt;
@@ -75,13 +71,15 @@ header {
 .branding .social-icon svg {
     height: 2.5vmax;
 }
-
+.branding .contact {
+    padding: 15px;
+}
 #logo {
     width: 100%;
     height: auto;
     max-width: 250px;
     transition: 0.1s;
-    padding: 25px;
+    padding: 15px;
 }
 
 nav {

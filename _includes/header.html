@@ -1,0 +1,50 @@
+<header>
+    <div class="branding">
+        <a href="/">
+            {% include brl-solutions-logo.svg %}
+        </a>
+        <div class="contact">
+            <div class="primary">
+                <span class="phone">{{ site.contact.phone }}</span> |
+                <span class="emailfilter">
+                    <span class="u">{{ site.contact.email-name }}</span>
+                    [at]
+                    <span class="d">{{ site.contact.email-domain }} [dot] com</span>
+                </span>
+            </div>
+            <div class="secondary">
+                <a class="social-icon facebook" href="{{ site.contact.facebook }}">
+                    {% include social-icons/facebook.svg %}
+                </a>
+                <a class="social-icon whatsapp" href="{{ site.contact.whatsapp }}">
+                    {% include social-icons/whatsapp.svg %}
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+<nav>
+    <ul class="nav-list">
+        <li class="nav-item">
+            <a href="/#">Home</a>
+        </li>
+        <li class="nav-item">
+            <a href="/#services">Services</a>
+        </li>
+        <li class="nav-item">
+            <a href="{% link projects.html %}">Projects</a>
+        </li>
+        <li class="nav-item">
+            <a href="{% link gallery.html %}">Gallery</a>
+        </li>
+        <li class="nav-item">
+            <a href="{% link about.html %}">About</a>
+        </li>
+        <li class="nav-item">
+            <a href="/#contact">Contact</a>
+        </li>
+        <li class="nav-expand">
+            <button>=</button>
+        </li>
+    </ul>
+</nav>

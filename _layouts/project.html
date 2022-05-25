@@ -1,0 +1,36 @@
+---
+layout: default
+title: Completed Project
+---
+
+<h1>{{ page.project-name }}</h1>
+
+{% assign project_gallery = site.static_files | where: "project", true %}
+{% assign image_array = "" | split: "," %}
+<div class="project-cover">
+    {% for img in project_gallery %}
+        {% if img.name contains page.slug %}
+            {% if img.name contains 'cover' %}
+                <img height="500px" src="{{ img.path }}">
+            {% else %}
+                {% assign image_array = image_array | push: img.path %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+</div>
+
+<div class="project-info">
+    <div class="project-description">
+        {{ page.description }}
+    </div>
+    <div class="project-review">
+        {{ page.review }}
+    </div>
+</div>
+
+<div class="project-gallery">
+    <h2>Gallery:</h2>
+    {% for img_path in image_array %}
+        <img height="200px" src="{{ img_path }}">
+    {% endfor %}
+</div>

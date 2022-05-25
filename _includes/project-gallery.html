@@ -1,0 +1,16 @@
+<div class="project-gallery">
+    {% assign recent_projects = site.projects | reverse %}
+    {% for project in recent_projects %}
+    <a class="project-link" href="{{ project.url }}">
+        <span>{{ project.project-name }}</span>
+        <div class="project-covers">
+            {% assign project_cover = site.static_files | where: "project", true %}
+            {% for img in project_cover %}
+                {% if img.path contains project.slug and img.name contains 'cover' %}
+                    <img class="cover" src="{{ img.path }}">
+                {% endif %}
+            {% endfor %}
+        </div>
+    </a>
+    {% endfor %}
+</div>

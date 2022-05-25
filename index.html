@@ -1,0 +1,97 @@
+---
+title: BRL Solutions
+layout: default
+class: home
+---
+
+<div class="home-slideshow">
+    <div class="description">
+        <h1>BRL Solutions</h1>
+        <p>
+            With <b>25+ years</b> of experience, we provide <b>building</b>, <b>roofing</b> and <b>hard landscaping</b> services
+            in <b>Monmouthshire</b>, <b>Gloucestershire</b>,  <b>Herefordshire</b>, <b>Bristol</b> and <b>Vale of Glamorgan</b>.
+            Friendly and approachable, competitive rates. Please <a href="#contact">contact</a> for a free estimate.
+        </p>
+        <p>
+            All jobs from your simple garden wall to a full extension. Drainage, plastering, carpentry,
+            roofing works, flat roofs, pitch roofs and hard landscaping, fencing, turfing, patios and decking.
+            Bespoke driveway gates and automation.
+        </p>
+    </div>
+    <div class="slideshow">
+        {% assign slideshow = site.static_files | where: "image", true %}
+        {% for image in slideshow %}
+            {% if image.name contains 'cover' or image.name contains 'slide' %}
+                <img class="slide" src="{{ image.path }}">
+                <!-- <span class="dot" onclick="currentSlide({% increment img_counter %})"></span> -->
+            {% endif %}
+            {% endfor %}
+    </div>
+</div>
+
+<div class="home-reviews">
+    <h2>Customer Reviews</h2>
+    <div class="testamonials">
+        {% assign reviews = site.data.reviews | sort: 'date' | reverse %}
+        {% for review in reviews %}
+            <div class="review-container">
+                <span class="review-content">{{ review.content }}</span>
+                <span class="review-author">{{ review.author}}</span>
+                <span class="review-date">{{ review.date | date: '%B %d %Y'}}</span>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div id="services" class="home-services">
+    <h2>Our services</h2>
+    {% assign left = site.data.services.size | divided_by:2 %}
+    {% assign right = left | plus: 1 %}
+    {% for service in site.data.services %}
+        {% assign service_class = "service-item" %}
+        {% assign side = "left" %}
+        {% if forloop.first or forloop.index == right %}
+            {% if forloop.index == right %}
+                {% assign side = "right" %}
+            {% endif %}
+            {% assign service_class = service_class | append: " active " | append: side %}
+            <div class="services" id="services-{{ side }}"
+            {{ side | prepend:'style="--service-img-' | append: ': url(/assets/img/services/services-' | append: service.id | append: '.jpg)"' }}>
+                <ul class="services-list">
+        {% endif %}
+                    <li onmouseover="hoverImg(this)" class="{{ service_class }}" id="services-{{ service.id }}"
+                    {{ service.id | prepend:'style="background-image: url(/assets/img/services/services-' | append: '.jpg)"' }}>
+                        {{ service.name }}
+                    </li>
+        {% if forloop.index == left or forloop.index == site.data.services.size %}
+                </ul>
+                <!-- <div class="blur-mask"></div> -->
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+
+<div class="home-projects">
+    <h2>Recent projects</h2>
+    {% include project-gallery.html %}
+
+</div>
+
+<div id="contact" class="home-contact">
+    <h2>Get in touch</h2>
+    <!-- Try to use cloudflare to handle forms, otherwise only have 50 submissions a month -->
+    <!-- https://formspree.io/f/xqknwvwa -->
+    <div class="contact-form">
+        <form action="/assets/js/submit.js" method="POST">
+            <label>
+                Your email address:
+                <input type="email" name="email" placeholder="name@example.com">
+            </label>
+            <label>
+                Your message:
+                <textarea name="message" placeholder="Leave a message..."></textarea>
+            </label>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</div>

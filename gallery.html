@@ -1,0 +1,13 @@
+---
+layout: default
+title: Gallery
+---
+
+<h1>Gallery</h1>
+
+{% assign project_gallery = site.static_files | where: "project", true %}
+<div class="gallery">
+    {% for img in project_gallery %}
+        <img height="300px" src="{{ img.path }}">
+    {% endfor %}
+</div>

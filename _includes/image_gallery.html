@@ -4,7 +4,7 @@
     </div>
     <div class="gallery">
         {% for img in include.gallery %}
-            <img onclick="fullImage(this)" src="{{ img.path }}">
+            {% picture {{ img.path }} alt="{{ img.name }}" onclick="fullImage(this)" %}
         {% endfor %}
     </div>
 </div>

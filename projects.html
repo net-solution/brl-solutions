@@ -15,7 +15,7 @@ class: projects
             {% assign project_cover = site.static_files | where: "project", true %}
             {% for img in project_cover %}
                 {% if img.path contains project.slug and img.name contains 'cover' %}
-                    <img class="cover" src="{{ img.path }}">
+                    {% picture {{ img.path }} class="cover" %}
                 {% endif %}
             {% endfor %}
         </div>

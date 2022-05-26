@@ -1,15 +1,12 @@
-# Global Variables
 name: BRL Solutions
 url: ""
 permalink: /:collection/:name/
 
-# Collections
 collections:
   projects:
     output: true
     sort_by: project-no
 
-# Defaults
 defaults:
   -
     scope:
@@ -22,7 +19,11 @@ defaults:
     values:
       project: true
 
-# Exclude these files from production site
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll_picture_tag
+
 exclude:
   - CHANGELOG.md
   - CNAME

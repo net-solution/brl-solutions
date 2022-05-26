@@ -5,11 +5,6 @@ class: gallery-page
 ---
 
 <h1>Gallery</h1>
-{% assign images = site.static_files | where: "project", true %}
-<!-- <div class="gallery">
-    {% for img in project_gallery %}
-        <span class="gallery-img"><img src="{{ img.path }}"></span>
-    {% endfor %}
-</div> -->
 
+{% assign images = site.static_files | where: "project", true %}
 {% include image_gallery.html gallery=images %}

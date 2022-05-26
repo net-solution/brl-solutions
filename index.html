@@ -27,8 +27,7 @@ class: home
         {% assign slideshow = site.static_files | where: "image", true %}
         {% for image in slideshow %}
             {% if image.name contains 'cover' or image.name contains 'slide' %}
-                <img class="slide" src="{{ image.path }}">
-                <!-- <span class="dot" onclick="currentSlide({% increment img_counter %})"></span> -->
+                {% picture {{ image.path }} class="slide" %}
             {% endif %}
             {% endfor %}
     </div>
@@ -56,6 +55,7 @@ class: home
 
     {% for service in services %}
         {% assign service_id = service | slugify %}
+        {% assign service_img = '/assets/img/services/services-' | append: service_id | append: '.jpg' %}
         {% assign service_class = "service-item" %}
         {% assign side = "left" %}
 
@@ -64,12 +64,12 @@ class: home
                 {% assign side = "right" %}
             {% endif %}
             {% assign service_class = service_class | append: " active " | append: side %}
-            <div class="services" id="services-{{ side }}" {{ side | prepend:'style="--service-img-' | append: ': url(/assets/img/services/services-'
-                | append: service_id | append: '.jpg)"' }}>
+
+            <div class="services" id="services-{{ side }}" {{ side | prepend:'style="--service-img-' | append: ': url(' | append: service_img | append: ')"' }}>
             <ul class="services-list">
         {% endif %}
                 <li onmouseover="hoverImg(this)" class="{{ service_class }}" id="services-{{ service_id }}"
-                {{ service_id | prepend:'style="background-image: url(/assets/img/services/services-' | append: '.jpg)"' }}>
+                {{ service_img | prepend:'style="background-image: url(' | append: ')"' }}>
                     {{ service }}
                 </li>
         {% if forloop.index == left or forloop.index == services.size %}
@@ -90,7 +90,7 @@ class: home
                 {% assign project_cover = site.static_files | where: "project", true %}
                 {% for img in project_cover %}
                     {% if img.path contains project.slug and img.name contains 'cover' %}
-                        <img class="cover" src="{{ img.path }}">
+                        {% picture {{ img.path }} class="cover" %}
                     {% endif %}
                 {% endfor %}
             </div>

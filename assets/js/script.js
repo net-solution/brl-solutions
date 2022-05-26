@@ -55,7 +55,7 @@ function fullImage(img) {
     var modal_img = document.getElementById("modal_img");
 
     modal.style.display = "block";
-    modal_img.src = img.src;
+    modal_img.src = "/assets/img/projects/" +  img.alt.split("_")[0] + "/" + img.alt;
 }
 
 function closeModal(modal) {

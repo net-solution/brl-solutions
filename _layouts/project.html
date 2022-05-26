@@ -12,7 +12,7 @@ class: project-page
             {% if img.name contains page.slug %}
             {% assign images = images | push: img %}
                 {% if img.name contains 'cover' or img.name contains 'slide' %}
-                    <img class="slide" src="{{ img.path }}">
+                    {% picture {{ img.path }} class="slide" %}
                 {% endif %}
             {% endif %}
         {% endfor %}
@@ -32,15 +32,4 @@ class: project-page
 </div>
 
 <h2>Gallery:</h2>
-<!-- <div class="image-gallery">
-    <div id="modal_box" onclick="closeModal(this)" class="modal">
-        <img class="modal-content" id="modal_img">
-    </div>
-    <div class="gallery">
-        {% for img_path in image_array %}
-            <img onclick="fullImage(this)" src="{{ img_path }}">
-        {% endfor %}
-    </div>
-</div> -->
-
 {% include image_gallery.html gallery=images %}

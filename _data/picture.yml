@@ -16,6 +16,9 @@ presets:
     widths: [400, 600, 800, 1000, 1200, 1600]
     fallback_width: 800
     fallback_format: original
+    sizes:
+      mobile: calc(100vw - 16px)
+      tablet: 80vw
     noscript: false
     link_source: false
     quality: 75

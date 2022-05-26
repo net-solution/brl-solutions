@@ -36,6 +36,8 @@ function hoverImg(item) {
             image = document.getElementById("services-right");
             image.style.setProperty('--service-img-right', new_image);
         }
+    } else {
+        item.height = '2000px';
     }
 }
 

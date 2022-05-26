@@ -1,0 +1,15 @@
+# Contact information
+
+phone: '07516 527740'
+email:
+  name: 'brlsolutions12'
+  domain: 'gmail'
+
+social:
+  - name: 'Facebook'
+    link: 'https://www.facebook.com/BRL-Solutions-115695894452005/'
+    icon: 'graphics/facebook.svg'
+
+  # - name: 'whatsapp'
+  #   link: '#'
+  #   icon: 'graphics/whatsapp.svg'

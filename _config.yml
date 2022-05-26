@@ -1,13 +1,5 @@
 # Global Variables
 name: BRL Solutions
-
-contact:
-  phone: "07516 527740"
-  email-name: brlsolutions12
-  email-domain: gmail
-  facebook: https://www.facebook.com/BRL-Solutions-115695894452005/
-  whatsapp: '#'
-
 url: ""
 permalink: /:collection/:name/
 

@@ -1,0 +1,10 @@
+<div class="image-gallery">
+    <div id="modal_box" onclick="closeModal(this)" class="modal">
+        <img class="modal-content" id="modal_img">
+    </div>
+    <div class="gallery">
+        {% for img in include.gallery %}
+            <img onclick="fullImage(this)" src="{{ img.path }}">
+        {% endfor %}
+    </div>
+</div>

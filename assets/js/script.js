@@ -38,3 +38,26 @@ function hoverImg(item) {
         }
     }
 }
+
+// Shows navbar on mobile
+function showNavbar() {
+    var x = document.getElementById("nav-links");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
+
+// Click for full-sized image
+function fullImage(img) {
+    var modal = document.getElementById("modal_box");
+    var modal_img = document.getElementById("modal_img");
+
+    modal.style.display = "block";
+    modal_img.src = img.src;
+}
+
+function closeModal(modal) {
+    modal.style.display = "none";
+}

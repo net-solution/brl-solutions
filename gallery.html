@@ -1,13 +1,15 @@
 ---
 layout: default
 title: Gallery
+class: gallery-page
 ---
 
 <h1>Gallery</h1>
-
-{% assign project_gallery = site.static_files | where: "project", true %}
-<div class="gallery">
+{% assign images = site.static_files | where: "project", true %}
+<!-- <div class="gallery">
     {% for img in project_gallery %}
-        <img height="300px" src="{{ img.path }}">
+        <span class="gallery-img"><img src="{{ img.path }}"></span>
     {% endfor %}
-</div>
+</div> -->
+
+{% include image_gallery.html gallery=images %}

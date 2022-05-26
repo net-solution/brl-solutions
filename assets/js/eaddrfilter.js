@@ -1,23 +1,23 @@
 /*
 	--------------------------------------------------------------------------
-	$Id: emailfilter.js 5 2007-09-29 15:56:26Z moltar $
+	$Id: eaddrfilter.js 5 2007-09-29 15:56:26Z moltar $
 	--------------------------------------------------------------------------
 	Version: 1.03
 	Release date: 13/05/2006
 	Last update: 07/01/2007
 
-	(c) 2006 EmailFilter (www.emailfilter.com)
+	(c) 2006 EaddrFilter (www.eaddrfilter.com)
 
 	This program is distributed under the terms of the GNU General Public
 	Licence version 2, available at http://www.gnu.org/licenses/gpl.txt
 	--------------------------------------------------------------------------
 */
 
-var emailFilterMainClass		= 'emailfilter';
-var emailFilterUserClass		= 'u';
-var emailFilterDomainClass		= 'd';
-var emailFilterAnchorTextClass = 't';
-var emailFilterParams			= new Array('subject', 'body');
+var eaddrFilterMainClass		= 'eaddrfilter';
+var eaddrFilterUserClass		= 'u';
+var eaddrFilterDomainClass		= 'd';
+var eaddrFilterAnchorTextClass = 't';
+var eaddrFilterParams			= new Array('subject', 'body');
 
 /*
 	--------------------------------------------------------------------------
@@ -25,22 +25,22 @@ var emailFilterParams			= new Array('subject', 'body');
 	--------------------------------------------------------------------------
 */
 
-// load EmailFilter
-addEvent(window, 'load', emailFilter);
+// load EaddrFilter
+addEvent(window, 'load', eaddrFilter);
 
-function emailFilter() {
-	var allEmailFilters = getElementsByClass(emailFilterMainClass, document, 'span');
-	for (var i = 0; i < allEmailFilters.length; i++) {
+function eaddrFilter() {
+	var allEaddrFilters = getElementsByClass(eaddrFilterMainClass, document, 'span');
+	for (var i = 0; i < allEaddrFilters.length; i++) {
 		// get data
-		var user = getSpanValue(emailFilterUserClass, allEmailFilters[i]);
-		var domain = getSpanValue(emailFilterDomainClass, allEmailFilters[i]);
-		var anchorText = getSpanValue(emailFilterAnchorTextClass, allEmailFilters[i]);
+		var user = getSpanValue(eaddrFilterUserClass, allEaddrFilters[i]);
+		var domain = getSpanValue(eaddrFilterDomainClass, allEaddrFilters[i]);
+		var anchorText = getSpanValue(eaddrFilterAnchorTextClass, allEaddrFilters[i]);
 		// prepare parameter data
 		var paramValues = new Array();
-		for (var j = 0; j < emailFilterParams.length; j++) {
-			var paramSpanValue = getSpanValue(emailFilterParams[j], allEmailFilters[i]);
+		for (var j = 0; j < eaddrFilterParams.length; j++) {
+			var paramSpanValue = getSpanValue(eaddrFilterParams[j], allEaddrFilters[i]);
 			if (paramSpanValue) {
-				paramValues.push(emailFilterParams[j] + '=' +
+				paramValues.push(eaddrFilterParams[j] + '=' +
 					encodeURIComponent(paramSpanValue));
 			}
 		}
@@ -52,11 +52,11 @@ function emailFilter() {
 		var hrefAttr = mto + email;
 			hrefAttr += paramValues.length ? '?' + paramValues.join('&') : '';
 		var anchorTag = document.createElement('a');
-			anchorTag.className = emailFilterMainClass;
+			anchorTag.className = eaddrFilterMainClass;
 			anchorTag.setAttribute('href', hrefAttr);
 			anchorTag.appendChild(anchorTagText);
 		// replace the span with anchor
-		allEmailFilters[i].parentNode.replaceChild(anchorTag, allEmailFilters[i]);
+		allEaddrFilters[i].parentNode.replaceChild(anchorTag, allEaddrFilters[i]);
 	}
 }
 

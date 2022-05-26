@@ -2,9 +2,10 @@
 layout: project
 
 project-no: 2
-project-name: "Shop fit for Barbershop"
+project-name: "Shop fitting for Barbershop"
 
-description: "Here we have a large decked area. Made from reclaimed scaffold boards, sanded back burnt and varnished. Flower and herb beds,
-        made to customers spec. Purgula made for hot tub to go under. Patio laid for seating area, and a reclaimed shed made into a bar."
-review: review pending
+description:
+  "We built a new brick wall at the front of the property, as well as a new fence and gate. We also built a patio area for the garden,
+  integrated with the existing space. Inside we built a custom mantlepiece as well as a brick wall along the barbershop area. This area
+  included the custom worktops as shown and varnished flooring with skirting boards."
 ---

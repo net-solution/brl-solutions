@@ -1,22 +1,22 @@
 ---
 layout: default
-title: Completed Project
+class: project-page
 ---
 
-<h1>{{ page.project-name }}</h1>
-
 {% assign project_gallery = site.static_files | where: "project", true %}
-{% assign image_array = "" | split: "," %}
+{% assign images = "" | split: "," %}
 <div class="project-cover">
-    {% for img in project_gallery %}
-        {% if img.name contains page.slug %}
-            {% if img.name contains 'cover' %}
-                <img height="500px" src="{{ img.path }}">
-            {% else %}
-                {% assign image_array = image_array | push: img.path %}
+    <h1>{{ page.project-name }}</h1>
+    <div class="slideshow">
+        {% for img in project_gallery %}
+            {% if img.name contains page.slug %}
+            {% assign images = images | push: img %}
+                {% if img.name contains 'cover' or img.name contains 'slide' %}
+                    <img class="slide" src="{{ img.path }}">
+                {% endif %}
             {% endif %}
-        {% endif %}
-    {% endfor %}
+        {% endfor %}
+    </div>
 </div>
 
 <div class="project-info">
@@ -24,13 +24,23 @@ title: Completed Project
         {{ page.description }}
     </div>
     <div class="project-review">
-        {{ page.review }}
+        {% assign review = site.data.reviews | where:"project_id", page.slug | first %}
+        <span class="review-content">"{{ review.content }}"</span>
+        <span class="review-author">{{ review.author }}</span>
+        <span class="review-date">{{ review.date }}</span>
     </div>
 </div>
 
-<div class="project-gallery">
-    <h2>Gallery:</h2>
-    {% for img_path in image_array %}
-        <img height="200px" src="{{ img_path }}">
-    {% endfor %}
-</div>
+<h2>Gallery:</h2>
+<!-- <div class="image-gallery">
+    <div id="modal_box" onclick="closeModal(this)" class="modal">
+        <img class="modal-content" id="modal_img">
+    </div>
+    <div class="gallery">
+        {% for img_path in image_array %}
+            <img onclick="fullImage(this)" src="{{ img_path }}">
+        {% endfor %}
+    </div>
+</div> -->
+
+{% include image_gallery.html gallery=images %}

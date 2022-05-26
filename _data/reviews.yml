@@ -1,13 +1,13 @@
 # Put reviews here
 
-- job-id: bar-decking-patio
-  author: Author
+- project_id: 'bar-decking-patio'
   date: 2022-04-25
+  author: Author
   content:
     "Review here"
 
-- job-id: barber-shop
-  author: Author
+- project_id: 'barber-shop'
   date: 2022-05-25
+  author: Author
   content:
     "Review here"

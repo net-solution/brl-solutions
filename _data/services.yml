@@ -1,41 +1,22 @@
-- id: building
-  name: Building
+locations:
+  - Monmouthshire
+  - Gloucestershire
+  - Herefordshire
+  - Bristol
+  - Vale of Glamorgan
 
-- id: stone_walls
-  name: Stone Walls
-
-- id: brick_walls
-  name: Brick Walls
-
-- id: plastering
-  name: Plastering
-
-- id: rendering
-  name: Rendering
-
-- id: demolition
-  name: Demolition
-
-- id: windows_doors
-  name: Windows & Doors
-
-- id: roofing
-  name: Roofing
-
-- id: fascias_soffits
-  name: Fascias & Soffits
-
-- id: patios
-  name: Patios
-
-- id: decking
-  name: Decking
-
-- id: fencing
-  name: Fencing
-
-- id: garden_gates
-  name: Garden Gates
-
-- id: driveway_gates
-  name: Driveway gates
+services:
+  - Building
+  - Stone Walls
+  - Brick Walls
+  - Plastering
+  - Rendering
+  - Demolition
+  - Windows & Doors
+  - Roofing
+  - Fascias & Soffits
+  - Patios
+  - Decking
+  - Fencing
+  - Garden Gates
+  - Driveway Gates

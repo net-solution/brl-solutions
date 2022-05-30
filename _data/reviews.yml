@@ -1,13 +1,13 @@
 # Put reviews here
 
-- project_id: 'bar-decking-patio'
-  date: 2022-04-25
-  author: Author
-  content:
-    "Review here"
+# - project_id: 'bar-decking-patio'
+#   date: 2022-04-25
+#   author: Author
+#   content:
+#     "Review here"
 
-- project_id: 'barber-shop'
-  date: 2022-05-25
-  author: Author
-  content:
-    "Review here"
+# - project_id: 'barber-shop'
+#   date: 2022-05-25
+#   author: Author
+#   content:
+#     "Review here"

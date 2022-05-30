@@ -24,16 +24,17 @@ class: home
         </p>
     </div>
     <div class="slideshow">
-        {% assign slideshow = site.static_files | where: "image", true %}
-        {% for image in slideshow %}
-            {% if image.name contains 'cover' or image.name contains 'slide' %}
-                {% picture {{ image.path }} class="slide" %}
-            {% endif %}
-            {% endfor %}
+        {% for project in site.projects %}
+            {% capture cover %}
+                assets/img/projects/{{ project.slug }}/{{ project.slug }}_{{ project.images.cover }}.jpg
+            {% endcapture %}
+            {% picture {{ cover }} class="slide" %}
+        {% endfor %}
     </div>
 </div>
 
 <div class="home-reviews">
+    {% if site.data.reviews %}
     <h2>Customer Reviews</h2>
     <div class="testamonials">
         {% assign reviews = site.data.reviews | sort: 'date' | reverse%}
@@ -45,6 +46,7 @@ class: home
             </div>
         {% endfor %}
     </div>
+    {% endif %}
 </div>
 
 <div id="services" class="home-services">
@@ -62,6 +64,8 @@ class: home
         {% if forloop.first or forloop.index == right %}
             {% if forloop.index == right %}
                 {% assign side = "right" %}
+            {% else %}
+                {% assign service_class = service_class | append: " mobile" %}
             {% endif %}
             {% assign service_class = service_class | append: " active " | append: side %}
 
@@ -82,18 +86,14 @@ class: home
 <div class="home-projects">
     <h2>Recent projects</h2>
     <div class="projects-gallery">
-        {% assign recent_projects = site.projects | reverse %}
-        {% for project in recent_projects limit:5%}
+        {% assign recent_projects = site.projects | sort: 'project_id' | reverse %}
+        {% for project in recent_projects limit:3%}
         <a class="project-link" href="{{ project.url }}">
-            <span>{{ project.project-name }}</span>
-            <div class="project-covers">
-                {% assign project_cover = site.static_files | where: "project", true %}
-                {% for img in project_cover %}
-                    {% if img.path contains project.slug and img.name contains 'cover' %}
-                        {% picture {{ img.path }} class="cover" %}
-                    {% endif %}
-                {% endfor %}
-            </div>
+            <span>{{ project.name }}</span>
+            {% capture cover %}
+                assets/img/projects/{{ project.slug }}/{{ project.slug }}_{{ project.images.cover }}.jpg
+            {% endcapture %}
+            {% picture cover {{ cover }} class="cover" %}
         </a>
         {% endfor %}
     </div>

@@ -3,18 +3,27 @@ layout: default
 class: project-page
 ---
 
-{% assign project_gallery = site.static_files | where: "project", true %}
+{% assign project_gallery = site.static_files | where: "project", true | reverse %}
 {% assign images = "" | split: "," %}
+{% for img in project_gallery %}
+    {% if img.path contains page.slug %}
+        {% assign images = images | push: img %}
+    {% endif %}
+{% endfor %}
+
 <div class="project-cover">
-    <h1>{{ page.project-name }}</h1>
+    <h1>{{ page.name }}</h1>
     <div class="slideshow">
-        {% for img in project_gallery %}
-            {% if img.name contains page.slug %}
-            {% assign images = images | push: img %}
-                {% if img.name contains 'cover' or img.name contains 'slide' %}
-                    {% picture {{ img.path }} class="slide" %}
-                {% endif %}
-            {% endif %}
+        {% capture cover %}
+            assets/img/projects/{{ page.slug }}/{{ page.slug }}_{{ page.images.cover }}.jpg
+        {% endcapture %}
+        {% picture {{ cover }} class="slide" %}
+
+        {% for img in page.images.slides %}
+            {% capture slide %}
+                assets/img/projects/{{ page.slug }}/{{ page.slug }}_{{ img }}.jpg
+            {% endcapture %}
+            {% picture {{ slide }} class="slide" %}
         {% endfor %}
     </div>
 </div>
@@ -23,12 +32,14 @@ class: project-page
     <div class="project-description">
         {{ page.description }}
     </div>
-    <div class="project-review">
-        {% assign review = site.data.reviews | where:"project_id", page.slug | first %}
-        <span class="review-content">"{{ review.content }}"</span>
-        <span class="review-author">{{ review.author }}</span>
-        <span class="review-date">{{ review.date }}</span>
-    </div>
+    {% assign review = site.data.reviews | where:"project_id", page.slug | first %}
+    {% if review %}
+        <div class="project-review">
+            <span class="review-content">"{{ review.content }}"</span>
+            <span class="review-author">{{ review.author }}</span>
+            <span class="review-date">{{ review.date }}</span>
+        </div>
+    {% endif %}
 </div>
 
 <h2>Gallery:</h2>

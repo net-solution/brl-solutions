@@ -6,5 +6,22 @@ class: gallery-page
 
 <h1>Gallery</h1>
 
-{% assign images = site.static_files | where: "project", true %}
+{% assign valid = "" | split: "," %}
+{% for project in site.projects %}
+    {% assign img_id = project.images.cover | prepend: "_" | prepend: project.slug %}
+    {% assign valid = valid | push: img_id %}
+    {% for slide in project.images.slides %}
+        {% assign img_id = slide | prepend: "_" | prepend: project.slug %}
+        {% assign valid = valid | push: img_id %}
+    {% endfor %}
+{% endfor %}
+
+{% assign gallery = site.static_files | where: "project", true %}
+{% assign images = "" | split: "," %}
+{% for img in gallery %}
+    {% if valid contains img.basename %}
+        {% assign images = images | push: img %}
+    {% endif %}
+{% endfor %}
+
 {% include image_gallery.html gallery=images %}

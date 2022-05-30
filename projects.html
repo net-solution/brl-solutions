@@ -7,18 +7,14 @@ class: projects
 <h1>Projects</h1>
 
 <div class="projects-gallery">
-    {% assign recent_projects = site.projects | reverse %}
+    {% assign recent_projects = site.projects | sort: 'project_id' %}
     {% for project in recent_projects %}
     <a class="project-link" href="{{ project.url }}">
-        <span>{{ project.project-name }}</span>
-        <div class="project-covers">
-            {% assign project_cover = site.static_files | where: "project", true %}
-            {% for img in project_cover %}
-                {% if img.path contains project.slug and img.name contains 'cover' %}
-                    {% picture {{ img.path }} class="cover" %}
-                {% endif %}
-            {% endfor %}
-        </div>
+        <span>{{ project.name }}</span>
+        {% capture cover %}
+            assets/img/projects/{{ project.slug }}/{{ project.slug }}_{{ project.images.cover }}.jpg
+        {% endcapture %}
+        {% picture cover {{ cover }} class="cover" %}
     </a>
     {% endfor %}
 </div>

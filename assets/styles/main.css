@@ -56,6 +56,8 @@ header {
     text-decoration: underline;
 }
 .branding .contact .primary {
+    display: flex;
+    flex-wrap: wrap;
     letter-spacing: -1.2pt;
     font-size: 2.6vmax;
     font-weight: 900;
@@ -75,6 +77,9 @@ header {
 }
 .branding .contact {
     padding: 15px;
+}
+.branding .contact .spacer {
+    margin: 0 5px;
 }
 #logo {
     width: 100%;
@@ -218,7 +223,7 @@ footer a:hover {
     z-index: -1;
     top: 0;
     left: 0;
-    transition: opacity 2000ms;
+    transition: opacity 2500ms;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -377,6 +382,7 @@ footer a:hover {
 @media (max-width: 500px) {
     .services {
         height: 300px;
+        max-height: 100%;
     }
     .services-list .service-item,
     .services-list .service-item.active {
@@ -387,8 +393,11 @@ footer a:hover {
         text-shadow: 0 0 3px #FFFFFF75;
         background-size: auto;
         justify-content: flex-start;
-
         background-position: center;
+    }
+    .services-list .service-item.mobile {
+        padding-top: 500px;
+        padding-bottom: 40px;
     }
     .services-list .service-item:before {
         transform: scale(1.1);
@@ -539,10 +548,11 @@ footer a:hover {
     padding: calc(40px - 25px);
 }
 .project-link {
-    margin: 25px;
+    margin: 15px;
     display: flex;
     flex-direction: column;
-    text-decoration: none;
+    /* flex: 1; */
+    /* text-decoration: none; */
     color: #111;
     font-size: 1.2rem;
 }
@@ -550,30 +560,16 @@ footer a:hover {
     font-weight: bold;
     margin-bottom: 10px;
 }
-.project-covers {
-    display: flex;
-    position: relative;
+.project-link picture {
+    width: 100%;
+    height: 100%;
+}
+.project-link picture img {
+    width: 500px;
     max-width: 100%;
-    margin-top: auto;
+    height: 375px;
+    object-fit: cover;
     box-shadow: 0 0 10px #00000075;
-}
-.project-covers picture {
-    display: flex;
-    transition: 200ms;
-}
-.project-link .cover {
-    max-width: 100%;
-    max-height: 300px;
-}
-.project-link picture:nth-child(2) {
-    opacity: 0;
-    position: absolute;
-}
-.project-link:hover picture:nth-child(1) {
-    opacity: 0;
-}
-.project-link:hover picture:nth-child(2) {
-    opacity: 1;
 }
 .button-container {
     display: flex;
@@ -654,13 +650,14 @@ footer a:hover {
     min-height: 40vh;
 }
 .project-info .project-description {
-    align-self: center;
-    flex-basis: 60%;
+    flex: 1;
     padding: 40px;
+    text-align: center;
+    align-self: center;
 }
 .project-info .project-review {
     display: flex;
-    flex: 1;
+    flex-basis: 40%;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;

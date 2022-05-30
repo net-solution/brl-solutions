@@ -1,6 +1,7 @@
 var myIndex = 0;
 carousel();
 
+// Slideshow
 function carousel() {
     var slides = document.getElementsByClassName("slide");
     var i;
@@ -13,9 +14,10 @@ function carousel() {
     }
     var next_slide = slides[myIndex - 1];
     next_slide.style.opacity = "1";
-    setTimeout(carousel, 4000);
+    setTimeout(carousel, 4500);
 }
 
+// Show image on hover (for services list)
 function hoverImg(item) {
     var image;
     var new_image = 'url(/assets/img/services/' + item.id + '.jpg)';
@@ -36,8 +38,6 @@ function hoverImg(item) {
             image = document.getElementById("services-right");
             image.style.setProperty('--service-img-right', new_image);
         }
-    } else {
-        item.height = '2000px';
     }
 }
 

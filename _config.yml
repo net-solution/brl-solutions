@@ -5,7 +5,10 @@ permalink: /:collection/:name/
 collections:
   projects:
     output: true
-    sort_by: project-no
+    sort_by: id
+
+picture:
+  fast_build: true
 
 defaults:
   -
@@ -23,6 +26,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll_picture_tag
+  - jekyll-loading-lazy
 
 exclude:
   - CHANGELOG.md

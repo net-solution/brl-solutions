@@ -7,11 +7,16 @@
             <div class="primary">
                 <span class="phone">{{ site.data.contact.phone }}</span>
                 <span class="spacer">|</span>
-                <span class="eaddrfilter">
+                <span class="eaddr">
+                    <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#98;&#114;&#108;&#115;&#111;&#108;&#117;&#116;&#105;&#111;&#110;&#115;&#49;&#50;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">
+                        &#98;&#114;&#108;&#115;&#111;&#108;&#117;&#116;&#105;&#111;&#110;&#115;&#49;&#50;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;
+                    </a>
+                </span>
+                <!-- <span class="eaddrfilter">
                     <span class="u">{{ site.data.contact.email.name }}</span>
                     [at]
                     <span class="d">{{ site.data.contact.email.domain }} [dot] com</span>
-                </span>
+                </span> -->
             </div>
             <div class="secondary">
                 {% for media in site.data.contact.social %}

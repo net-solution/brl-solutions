@@ -1,10 +1,19 @@
 <div class="image-gallery">
-    <div id="modal_box" onclick="closeModal(this)" class="modal">
+    <div id="modal_box" class="modal">
         <img class="modal-content" id="modal_img">
+        <span class="button" id="close" onclick="closeModal()" >&times;</span>
+        <span class="button" id="prev"  onclick="nextImage(this.id)">&#10094;</span>
+        <span class="button" id="next" onclick="nextImage(this.id)">&#10095;</span>
     </div>
     <div class="gallery">
         {% for img in include.gallery %}
-            {% picture {{ img.path }} alt="{{ img.name }}" onclick="fullImage(this)" %}
+
+            {% assign next_id = forloop.index0 | plus: 1 | modulo: include.gallery.size %}
+            {% assign next_img = include.gallery[next_id].name %}
+            {% assign prev_id = forloop.index0 | minus: 1 | modulo: include.gallery.size %}
+            {% assign prev_img = include.gallery[prev_id].name %}
+            {% picture {{ img.path }} id="{{ img.name }}" onclick="fullImage(this)" data-next="{{ next_img }}" data-prev="{{ prev_img }}" %}
+
         {% endfor %}
     </div>
 </div>

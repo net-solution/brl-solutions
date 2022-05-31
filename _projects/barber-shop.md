@@ -2,7 +2,7 @@
 layout: project
 
 project_id: 3
-name: "Shop fitting for Barbershop"
+name: "Shop Fitting for Barbers"
 images:
   cover: '03'
   slides:
@@ -10,9 +10,7 @@ images:
     - '06'
 
 description:
-  "We built a new brick wall at the front of the property, as well as a new fence and gate. We also built a patio area for the garden,
-  integrated with the existing space. Inside we built a custom mantlepiece as well as a brick wall along the barbershop area. This area
-  included the custom worktops as shown and varnished flooring with skirting boards."
-
-review: pending
+  "We built a brick wall for a barbershop area, complete with a custom worktop
+  and power fittings. We installed new wooden flooring and skirting for this area,
+  in addition to designing a radiator mantlepiece to customer spec."
 ---

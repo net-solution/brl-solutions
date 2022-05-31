@@ -10,7 +10,7 @@ images:
     - '05'
     - '07'
 
-description: "Here we have a large decked area. Made from reclaimed scaffold boards, sanded back burnt and varnished. Flower and herb beds,
-        made to customers spec. Purgula made for hot tub to go under. Patio laid for seating area, and a reclaimed shed made into a bar."
-review: pending
+description:
+  "We installed an automated sliding gate for a customer's driveway. Using composite
+  filled steel with a powdered-coated finish. "
 ---

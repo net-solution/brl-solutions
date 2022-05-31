@@ -6,7 +6,8 @@ class: project-page
 {% assign project_gallery = site.static_files | where: "project", true | reverse %}
 {% assign images = "" | split: "," %}
 {% for img in project_gallery %}
-    {% if img.path contains page.slug %}
+    {% assign img_id = img.basename | split: "_" | first %}
+    {% if img_id == page.slug %}
         {% assign images = images | push: img %}
     {% endif %}
 {% endfor %}
@@ -28,6 +29,7 @@ class: project-page
     </div>
 </div>
 
+<h2>Project Details</h2>
 <div class="project-info">
     <div class="project-description">
         {{ page.description }}
@@ -42,5 +44,5 @@ class: project-page
     {% endif %}
 </div>
 
-<h2>Gallery:</h2>
+<h2>Gallery</h2>
 {% include image_gallery.html gallery=images %}

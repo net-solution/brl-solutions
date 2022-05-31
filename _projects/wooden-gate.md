@@ -8,7 +8,8 @@ images:
   slides:
     - '02'
 
-description: "Here we have a large decked area. Made from reclaimed scaffold boards, sanded back burnt and varnished. Flower and herb beds,
-        made to customers spec. Purgula made for hot tub to go under. Patio laid for seating area, and a reclaimed shed made into a bar."
-review: pending
+description:
+  "We designed and installed a wooden garden gate to fit a customer's wall.
+  The gate was built with reliability in mind, featuring two weatherproof bolts
+  and a latch."
 ---

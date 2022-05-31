@@ -74,7 +74,7 @@ class: home
         {% endif %}
                 <li onmouseover="hoverImg(this)" class="{{ service_class }}" id="services-{{ service_id }}"
                 {{ service_img | prepend:'style="background-image: url(' | append: ')"' }}>
-                    {{ service }}
+                    <span class="bullet">&bull;</span>{{ service }}
                 </li>
         {% if forloop.index == left or forloop.index == services.size %}
             </ul>

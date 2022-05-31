@@ -57,9 +57,19 @@ function fullImage(img) {
     var modal_img = document.getElementById("modal_img");
 
     modal.style.display = "block";
-    modal_img.src = "/assets/img/projects/" +  img.alt.split("_")[0] + "/" + img.alt;
+    modal_img.src = "/assets/img/projects/" +  img.id.split("_")[0] + "/" + img.id;
 }
 
-function closeModal(modal) {
+function closeModal() {
+    var modal = document.getElementById("modal_box");
     modal.style.display = "none";
+}
+
+function nextImage(direction) {
+    var modal_img_src = document.getElementById("modal_img").src.split('/');
+    var modal_img = modal_img_src[modal_img_src.length - 1];
+    var src_img = document.getElementById(modal_img);
+
+    var next = src_img.getAttribute('data-'+direction);
+    document.getElementById("modal_img").src = "/assets/img/projects/" +  next.split("_")[0] + "/" + next;
 }

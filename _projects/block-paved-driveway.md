@@ -6,9 +6,8 @@ name: "Block Paved Driveway"
 images:
   cover: '06'
   slides:
-    - '07'
+    - '05'
 
-description: "Here we have a large decked area. Made from reclaimed scaffold boards, sanded back burnt and varnished. Flower and herb beds,
-        made to customers spec. Purgula made for hot tub to go under. Patio laid for seating area, and a reclaimed shed made into a bar."
-review: pending
+description:
+  "Block-paved area for customer's driveway. The sloping area was cleared and dug out to accomodate the paving. We also built a brick wall and corrugated fence along the perimeter."
 ---

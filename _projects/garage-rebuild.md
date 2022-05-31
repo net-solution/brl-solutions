@@ -8,7 +8,7 @@ images:
   slides:
     - '04'
 
-description: "Here we have a large decked area. Made from reclaimed scaffold boards, sanded back burnt and varnished. Flower and herb beds,
-        made to customers spec. Purgula made for hot tub to go under. Patio laid for seating area, and a reclaimed shed made into a bar."
-review: pending
+description:
+  "This is the start of an insurance rebuild job for a corner of a garage. We have
+  begun with the brick wall, attempting to rebuild it as close to the original as possible."
 ---

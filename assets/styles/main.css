@@ -58,8 +58,8 @@ header {
 .branding .contact .primary {
     display: flex;
     flex-wrap: wrap;
-    letter-spacing: -1.2pt;
-    font-size: 2.6vmax;
+    letter-spacing: -0.25pt;
+    font-size: 3vmax;
     font-weight: 900;
     margin-bottom: 10px;
 }
@@ -339,7 +339,6 @@ footer a:hover {
     position: relative;
     z-index: 1;
 
-    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -400,22 +399,22 @@ footer a:hover {
         font-size: 1.8rem;
         color: #222;
         text-shadow: 0 0 3px #FFFFFF75;
-        background-size: auto;
         justify-content: flex-start;
-        background-position: center;
+        /* background-size: auto; */
+        /* background-position: center; */
     }
-    .services-list .service-item.mobile {
-        /* padding-top: 500px; */
-        /* padding-bottom: 40px; */
-    }
+    /* .services-list .service-item.mobile {
+        padding-top: 500px;
+        padding-bottom: 40px;
+    } */
     .services-list .service-item .bullet {
         display: inline;
     }
     .services-list .service-item::before {
         transform: scale(1.1);
-        filter: blur(10px);
-        -webkit-mask-image: linear-gradient(to right, white 0%, white 60%, transparent 100%);
-        mask-image: linear-gradient(to right, white 0%, white 60%, transparent 100%);
+        /* filter: blur(10px); */
+        -webkit-mask-image: linear-gradient(to right, white 0%, white 50%, transparent 100%);
+        mask-image: linear-gradient(to right, white 0%, white 50%, transparent 100%);
     }
     .services-list .service-item::after {
         content: "";
@@ -433,6 +432,9 @@ footer a:hover {
     }
 }
 @media (min-width: 501px) {
+    .services-list .service-item {
+        flex: 1;
+    }
     .services-list .service-item.active {
         background: none !important;
     }

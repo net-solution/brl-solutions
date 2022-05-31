@@ -28,7 +28,7 @@ class: home
             {% capture cover %}
                 assets/img/projects/{{ project.slug }}/{{ project.slug }}_{{ project.images.cover }}.jpg
             {% endcapture %}
-            {% picture {{ cover }} class="slide" %}
+            {% picture {{ cover }} class="slide" loading="eager" %}
         {% endfor %}
     </div>
 </div>
@@ -56,8 +56,9 @@ class: home
     {% assign right = left | plus: 1 %}
 
     {% for service in services %}
-        {% assign service_id = service | slugify %}
-        {% assign service_img = '/assets/img/services/services-' | append: service_id | append: '.jpg' %}
+        {% assign service_id = service | slugify | prepend: 'services-' %}
+        {% assign service_img = '/assets/img/services/' | append: service_id | append: '.jpg' %}
+        {% assign service_img_mobile = '/assets/img/services/mobile/mobile-' | append: service_id | append: '.jpg' %}
         {% assign service_class = "service-item" %}
         {% assign side = "left" %}
 
@@ -69,11 +70,20 @@ class: home
             {% endif %}
             {% assign service_class = service_class | append: " active " | append: side %}
 
-            <div class="services" id="services-{{ side }}" {{ side | prepend:'style="--service-img-' | append: ': url(' | append: service_img | append: ')"' }}>
+            <style scoped>
+                #services-{{ side }} {
+                    --service-img-{{ side }}: url({{ service_img }});
+                }
+            </style>
+            <div class="services" id="services-{{ side }}">
             <ul class="services-list">
         {% endif %}
-                <li onmouseover="hoverImg(this)" class="{{ service_class }}" id="services-{{ service_id }}"
-                {{ service_img | prepend:'style="background-image: url(' | append: ')"' }}>
+                <style scoped>
+                    #{{ service_id }} {
+                        background-image: url({{ service_img_mobile }});
+                    }
+                </style>
+                <li onmouseover="hoverImg(this)" class="{{ service_class }}" id="{{ service_id }}">
                     <span class="bullet">&bull;</span>{{ service }}
                 </li>
         {% if forloop.index == left or forloop.index == services.size %}

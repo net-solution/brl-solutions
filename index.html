@@ -24,7 +24,7 @@ class: home
         </p>
     </div>
     <div class="slideshow">
-        {% for project in site.projects %}
+        {% for project in site.projects limit:5 %}
             {% capture cover %}
                 assets/img/projects/{{ project.slug }}/{{ project.slug }}_{{ project.images.cover }}.jpg
             {% endcapture %}

@@ -73,7 +73,8 @@ header {
     margin-right: 10px;
 }
 .branding .social-icon svg {
-    height: 2.5vmax;
+    height: 3vmax;
+    min-height: 2rem;
 }
 .branding .contact {
     padding: 15px;

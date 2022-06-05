@@ -12,7 +12,7 @@
             {% assign next_img = include.gallery[next_id].name %}
             {% assign prev_id = forloop.index0 | minus: 1 | modulo: include.gallery.size %}
             {% assign prev_img = include.gallery[prev_id].name %}
-            {% picture {{ img.path }} id="{{ img.name }}" onclick="fullImage(this)" data-next="{{ next_img }}" data-prev="{{ prev_img }}" %}
+            {% picture {{ img.path }} id="{{ img.name }}" onclick="fullImage(this)" data-next="{{ next_img }}" data-prev="{{ prev_img }}" alt="{{ img.name }}" %}
 
         {% endfor %}
     </div>

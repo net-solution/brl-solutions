@@ -14,7 +14,7 @@ class: projects
         {% capture cover %}
             assets/img/projects/{{ project.slug }}/{{ project.slug }}_{{ project.images.cover }}.jpg
         {% endcapture %}
-        {% picture cover {{ cover }} class="cover" %}
+        {% picture cover {{ cover }} class="cover" alt="project cover image" %}
     </a>
     {% endfor %}
 </div>

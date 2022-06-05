@@ -1,12 +1,12 @@
 ---
-title: BRL Solutions
+title: Building, Roofing and Landscaping UK
 layout: default
 class: home
 ---
 
 <div class="home-slideshow">
     <div class="description">
-        <h1>BRL Solutions</h1>
+        <h1>BRL Solutions - Building, Roofing, Landscaping</h1>
         <p>
             With <b>25+ years</b> of experience, we provide <b>building</b>, <b>roofing</b> and <b>hard landscaping</b> services
             in and around South Wales. Areas of work currently include:
@@ -20,7 +20,8 @@ class: home
         <p>
             All jobs from your simple garden wall to a full extension. Drainage, plastering, carpentry,
             roofing works, flat roofs, pitch roofs and hard landscaping, fencing, turfing, patios and decking.
-            Bespoke driveway gates and automation.
+            Bespoke driveway gates and automation. Feel free to check out our recent projects, or browse the
+            gallery.
         </p>
     </div>
     <div class="slideshow">
@@ -28,7 +29,7 @@ class: home
             {% capture cover %}
                 assets/img/projects/{{ project.slug }}/{{ project.slug }}_{{ project.images.cover }}.jpg
             {% endcapture %}
-            {% picture {{ cover }} class="slide" loading="eager" %}
+            {% picture {{ cover }} class="slide" loading="eager" alt="slideshow image" %}
         {% endfor %}
     </div>
 </div>
@@ -103,7 +104,7 @@ class: home
             {% capture cover %}
                 assets/img/projects/{{ project.slug }}/{{ project.slug }}_{{ project.images.cover }}.jpg
             {% endcapture %}
-            {% picture cover {{ cover }} class="cover" %}
+            {% picture cover {{ cover }} class="cover" alt="project cover image" %}
         </a>
         {% endfor %}
     </div>

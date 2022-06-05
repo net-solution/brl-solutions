@@ -18,13 +18,13 @@ class: project-page
         {% capture cover %}
             assets/img/projects/{{ page.slug }}/{{ page.slug }}_{{ page.images.cover }}.jpg
         {% endcapture %}
-        {% picture {{ cover }} class="slide" %}
+        {% picture {{ cover }} class="slide" alt="project cover image" %}
 
         {% for img in page.images.slides %}
             {% capture slide %}
                 assets/img/projects/{{ page.slug }}/{{ page.slug }}_{{ img }}.jpg
             {% endcapture %}
-            {% picture {{ slide }} class="slide" %}
+            {% picture {{ slide }} class="slide" alt="project slideshow image" %}
         {% endfor %}
     </div>
 </div>

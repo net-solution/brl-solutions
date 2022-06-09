@@ -2,7 +2,7 @@
 # different config blocks for different sections of your site.
 # For example, you can have one property to handle comment submission and
 # another one to handle posts.
-comments:
+reviews:
   # (*) REQUIRED
   #
   # Names of the fields the form is allowed to submit. If a field that is
@@ -75,4 +75,3 @@ comments:
   # the name of the field and values are possible transformation types.
   transforms:
     email: md5
-

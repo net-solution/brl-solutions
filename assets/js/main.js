@@ -73,3 +73,41 @@ function nextImage(direction) {
     var next = src_img.getAttribute('data-'+direction);
     document.getElementById("modal_img").src = "/assets/img/projects/" +  next.split("_")[0] + "/" + next;
 }
+
+// Static reviews
+(function ($) {
+    var $reviews = $('.js-reviews');
+
+    $('#review-form').submit(function () {
+      var form = this;
+
+      $(form).addClass('disabled');
+      $('#review-form-submit').html('<svg class="icon spin"><use xlink:href="#icon-loading"></use></svg> Loading...');
+
+      $.ajax({
+        type: $(this).attr('method'),
+        url: $(this).attr('action'),
+        data: $(this).serialize(),
+        contentType: 'application/x-www-form-urlencoded',
+        success: function (data) {
+          $('#review-form-submit').html('Submitted');
+          $('.post__reviews-form .js-notice').removeClass('notice--danger').addClass('notice--success');
+          showAlert('<strong>Thanks for your review!</strong> It will show on the site once it has been approved.');
+        },
+        error: function (err) {
+          console.log(err);
+          $('#review-form-submit').html('Submit review');
+          $('.post__reviews-form .js-notice').removeClass('notice--success').addClass('notice--danger');
+          showAlert('<strong>Sorry, there was an error with your submission.</strong> Please make sure all required fields have been completed and try again.');
+          $(form).removeClass('disabled');
+        }
+      });
+
+      return false;
+    });
+
+    function showAlert(message) {
+      $('.post__reviews-form .js-notice').removeClass('hidden');
+      $('.post__reviews-form .js-notice-text').html(message);
+    }
+  })(jQuery);

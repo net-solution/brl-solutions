@@ -1,0 +1,30 @@
+<section class="reviews" id="review-section">
+  {% if site.data.reviews[page.slug] %}
+  <!-- Existing reviews -->
+  <div class="reviews__existing">
+    <h2>reviews</h2>
+    <hr>
+    {% assign reviews = site.data.reviews[page.slug] | where_exp: "item", "item.replying_to_uid == ''" %}
+    {% assign reviews_by_date = reviews | sort: 'date' | reverse %}
+    <!-- List main reviews in reverse date order, newest first. List replies in date order, oldest first. -->
+    {% for review in reviews_by_date %}
+    {%- assign email           = review.email %}
+    {%- assign name            = review.name %}
+    {%- assign url             = review.url %}
+    {%- assign date            = review.date %}
+    {%- assign message         = review.message %}
+    {%- assign uid             = review._id %}
+    {% include review.html is_reply=false uid=uid replying_to=0 email=email name=name url=url date=date message=message uid=uid %}
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <!-- New review form -->
+  <div id="respond" class="review__new">
+    {% include review_form.html %}
+  </div>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="{{ '/assets/js/staticman.js' | relative_url }}"></script>
+<!-- <script src="https://www.google.com/recaptcha/api.js"></script> -->

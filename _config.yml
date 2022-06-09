@@ -22,6 +22,9 @@ defaults:
     values:
       project: true
 
+# staticman configuration
+staticman_url: https://brl-staticman.herokuapp.com/v2/entry/net-solution/brl-solutions/main/reviews
+
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap

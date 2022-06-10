@@ -828,6 +828,23 @@ form textarea:focus {
     font-size: 1.1rem;
 }
 
+/** LEAVE REVIEW PAGE **/
+.js-notice {
+    margin: -15px 0 15px 0;
+    padding: 20px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+.danger {
+    color: red;
+    border-top-color: red;
+    border-bottom-color: red;
+}
+.success {
+    color: green;
+    border-top-color: green;
+    border-bottom-color: green;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   html {

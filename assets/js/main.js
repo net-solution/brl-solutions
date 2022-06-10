@@ -6,17 +6,19 @@ carousel();
 // Slideshow
 function carousel() {
     var slides = document.getElementsByClassName("slide");
-    var i;
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.opacity = "0";
+    if (slides.length != 0) {
+      var i;
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.opacity = "0";
+      }
+      myIndex++;
+      if (myIndex > slides.length) {
+          myIndex = 1
+      }
+      var next_slide = slides[myIndex - 1];
+      next_slide.style.opacity = "1";
+      setTimeout(carousel, 4500);
     }
-    myIndex++;
-    if (myIndex > slides.length) {
-        myIndex = 1
-    }
-    var next_slide = slides[myIndex - 1];
-    next_slide.style.opacity = "1";
-    setTimeout(carousel, 4500);
 }
 
 // Show image on hover (for services list)
@@ -92,14 +94,14 @@ function nextImage(direction) {
         data: $(this).serialize(),
         contentType: 'application/x-www-form-urlencoded',
         success: function (data) {
-          $('#review-form-submit').html('Submitted');
-          $('.js-notice').removeClass('notice--danger').addClass('notice--success');
+          // $('#review-form-submit').html('Submit review');
+          $('.js-notice').removeClass('danger').addClass('success');
           showAlert('<strong>Thanks for your review!</strong> It will show on the site once it has been approved.');
         },
         error: function (err) {
           console.log(err);
-          $('#review-form-submit').html('Submit review');
-          $('.js-notice').removeClass('notice--success').addClass('notice--danger');
+          // $('#review-form-submit').html('Submit review');
+          $('.js-notice').removeClass('success').addClass('danger');
           showAlert('<strong>Sorry, there was an error with your submission.</strong> Please make sure all required fields have been completed and try again.');
           $(form).removeClass('disabled');
         }

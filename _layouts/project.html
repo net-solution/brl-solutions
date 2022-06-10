@@ -34,12 +34,12 @@ class: project-page
     <div class="project-description">
         {{ page.description }}
     </div>
-    {% assign review = site.data.reviews | where:"project_id", page.slug | first %}
-    {% if review %}
-        <div class="project-review">
-            <span class="review-content">"{{ review.content }}"</span>
-            <span class="review-author">{{ review.author }}</span>
-            <span class="review-date">{{ review.date }}</span>
+    {% assign entry = site.data.reviews | where:"project", page.slug | first %}
+    {% if entry %}
+    <div class="project-review">
+            <span class="review-content">"{{ entry.review }}"</span>
+            <span class="review-author">{{ entry.name }}</span>
+            <span class="review-date">{{ entry.date | date: '%B %d %Y' }}</span>
         </div>
     {% endif %}
 </div>

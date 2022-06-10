@@ -96,7 +96,7 @@ function nextImage(direction) {
         success: function (data) {
           // $('#review-form-submit').html('Submit review');
           $('.js-notice').removeClass('danger').addClass('success');
-          showAlert('<strong>Thanks for your review!</strong> It will show on the site once it has been approved.');
+          showAlert('<strong>Thanks for your review!</strong> It might take a few minutes to load.');
         },
         error: function (err) {
           console.log(err);

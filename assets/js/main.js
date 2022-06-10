@@ -86,7 +86,7 @@ function nextImage(direction) {
       var form = this;
 
       $(form).addClass('disabled');
-    //   $('#review-form-submit').html('<svg class="icon spin"><use xlink:href="#icon-loading"></use></svg> Loading...');
+      $('#review-form-submit').html('Loading...');
 
       $.ajax({
         type: $(this).attr('method'),

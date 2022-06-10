@@ -93,13 +93,13 @@ function nextImage(direction) {
         contentType: 'application/x-www-form-urlencoded',
         success: function (data) {
           $('#review-form-submit').html('Submitted');
-          $('.post__reviews-form .js-notice').removeClass('notice--danger').addClass('notice--success');
+          $('.js-notice').removeClass('notice--danger').addClass('notice--success');
           showAlert('<strong>Thanks for your review!</strong> It will show on the site once it has been approved.');
         },
         error: function (err) {
           console.log(err);
           $('#review-form-submit').html('Submit review');
-          $('.post__reviews-form .js-notice').removeClass('notice--success').addClass('notice--danger');
+          $('.js-notice').removeClass('notice--success').addClass('notice--danger');
           showAlert('<strong>Sorry, there was an error with your submission.</strong> Please make sure all required fields have been completed and try again.');
           $(form).removeClass('disabled');
         }
@@ -109,7 +109,7 @@ function nextImage(direction) {
     });
 
     function showAlert(message) {
-      $('.post__reviews-form .js-notice').removeClass('hidden');
-      $('.post__reviews-form .js-notice-text').html(message);
+      $('.js-notice').removeClass('hidden');
+      $('.js-notice-text').html(message);
     }
   })(jQuery);

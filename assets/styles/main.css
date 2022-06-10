@@ -21,7 +21,7 @@ body {
     flex-direction: column;
 }
 
-body, input, button, textarea {
+body, input, button, textarea, select {
     font-size: 1rem;
     font-family: 'Inter', 'Helvetica', 'Arial', 'sans-serif';
 }
@@ -252,13 +252,13 @@ footer a:hover {
     margin: 10px;
     padding: 10px;
 }
-.home-reviews .review-content {
+.review-content {
     position: relative;
     padding: 30px;
     margin-bottom: 30px;
     box-shadow: 0 10px 30px #00000045;
 }
-.home-reviews .review-content::after {
+.review-content::after {
     content: "";
     position: absolute;
     top: 100%;
@@ -444,17 +444,31 @@ footer a:hover {
     }
 }
 
-.home-contact .contact-wrapper {
+.review-wrapper, .contact-wrapper {
     display: flex;
     justify-content: center;
     padding: 40px;
 }
-.home-contact .contact-form {
+.review-wrapper {
+    padding-top: 0 !important;
+}
+.form-wrapper {
     font-size: 1.1rem;
     display: flex;
     flex-direction: column;
     width: 100%;
     max-width: 1000px;
+}
+.form-wrapper form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-wrapper label {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 25px;
 }
 .home-contact p {
     margin: 0;
@@ -494,20 +508,10 @@ footer a:hover {
     width: 2rem;
     height: 2rem;
 }
-.home-contact .contact-form form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.home-contact .contact-form label {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-bottom: 25px;
-}
-.contact-form input,
-.contact-form textarea,
-.contact-form button {
+form input,
+form textarea,
+form button,
+form select {
     width: 100%;
     margin: 0;
     margin-top: 5px;
@@ -515,28 +519,32 @@ footer a:hover {
     border: 1px solid #333;
     border-radius: 4px;
 }
-.contact-form textarea {
+form textarea {
     height: 100px;
 }
-.contact-form button {
+form button {
     max-width: 200px;
     background-color: #e4e4e4;
     transition: 100ms;
 }
-.contact-form button:hover {
+form button:hover {
     cursor: pointer;
     background-color: #494949;
     color: white;
 }
-.contact-form input:focus,
-.contact-form textarea:focus {
+form select:hover {
+    cursor: pointer;
+}
+form input:focus,
+form textarea:focus {
     border: none;
 }
 
 /** SHARED STYLES **/
 .gallery-page h1,
 .projects h1,
-.about h1 {
+.about h1,
+.review h1 {
     text-align: center;
     font-size: 3rem;
     margin: 20px 0;
@@ -625,18 +633,26 @@ footer a:hover {
     justify-content: center;
     margin: 0 40px 40px;
 }
-.more-projects {
+.link-button {
     width: 100%;
     max-width: 200px;
-    padding: 10px;
+    padding: 20px;
     border: 1px solid #111;
     border-radius: 50px;
     text-align: center;
     text-decoration: none;
     color: black;
     transition: 100ms;
+    background-color: #fff;
 }
-.more-projects:hover {
+.link-button.long {
+    max-width: 500px;
+    margin-top: 40px;
+}
+.link-button.left {
+    margin-right: 15px;
+}
+.link-button:hover {
     background-color: var(--orange);
     color: white;
 }

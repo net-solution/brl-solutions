@@ -35,20 +35,28 @@ class: home
 </div>
 
 <div class="home-reviews">
-    {% include review_form.html %}
-    {% if site.data.reviews %}
     <h2>Customer Reviews</h2>
-    <div class="testamonials">
-        {% assign reviews = site.data.reviews | sort: 'date' | reverse%}
-        {% for review in reviews %}
+    {% if site.data.reviews.size > 0 %}
+        <div class="testamonials">
+            {% for entry in site.data.reviews limit:5%}
             <div class="review-container">
-                <span class="review-content">{{ review.content }}</span>
-                <span class="review-author">{{ review.author}}</span>
-                <span class="review-date">{{ review.date | date: '%B %d %Y'}}</span>
+                <span class="review-content">{{ entry[1].review }}</span>
+                <span class="review-author">{{ entry[1].name }}</span>
+                <span class="review-date">{{ entry[1].date | date: '%B %d %Y' }}</span>
             </div>
-        {% endfor %}
-    </div>
+            {% endfor %}
+        </div>
     {% endif %}
+    <div class="button-container">
+        {% if site.data.reviews.size > 5 %}
+            <a class="link-button left" href="{% link reviews.html %}">See all Reviews</a>
+            <a class="link-button" href="{% link leave-review.html %}">Leave a Review</a>
+        {% elsif site.data.reviews.size > 0 %}
+            <a class="link-button" href="{% link leave-review.html %}">Leave a Review</a>
+        {% else %}
+            <a class="link-button long" href="{% link leave-review.html %}">Be the first to leave a review!</a>
+        {% endif %}
+    </div>
 </div>
 
 <div id="services" class="home-services">
@@ -110,14 +118,14 @@ class: home
         {% endfor %}
     </div>
     <div class="button-container">
-        <a class="more-projects" href="{% link projects.html %}">See all projects</a>
+        <a class="link-button" href="{% link projects.html %}">See all projects</a>
     </div>
 </div>
 
 <div id="contact" class="home-contact">
     <h2>Get in touch</h2>
     <div class="contact-wrapper">
-        <div class="contact-form">
+        <div class="form-wrapper">
             <p>Feel free to contact us for a free estimate. You can reach us by email, phone or using the contact form below.</p>
             <ul class="contact-list">
                 <li>

@@ -1,0 +1,45 @@
+---
+layout: default
+title: Leave a Review
+class: review
+---
+
+<h1>Leave a Review</h1>
+
+<div class="review-wrapper">
+    <div class="form-wrapper">
+        <p>Feel free to leave a review on our work. If your job is listed on the site, select it from the menu and the review will appear on its project page</p>
+        <form id="review-form" method="POST" action="{{ site.staticman_url }}">
+            <label for="review-form-name">
+                Name
+                <input type="text" id="review-form-name" name="fields[name]" placeholder="e.g. John" required="">
+            </label>
+
+            <label for="review-form-content">
+                Review
+                <textarea type="text" rows="3" id="review-form-content" placeholder="Your review here" name="fields[review]" required=""></textarea>
+            </label>
+
+            <label for="review-form-job">
+                Project
+                <select id="review-form-job" name="fields[project]">
+                    <option value="none">Other</option>
+                    {% for project in site.projects %}
+                        <option value="{{ project.slug }}">{{ project.name }}</option>
+                    {% endfor %}
+                </select>
+                <p>(If you're job isn't listed, please choose 'Other')</p>
+            </label>
+
+            <div class="hidden" style="display: none;">
+                <!-- Used by Staticman to generate filenames for each review -->
+                <input type="hidden" name="options[slug]" value="{{ page.slug }}">
+                <input type="text" id="review-form-location" name="fields[hidden]" autocomplete="off">
+            </div>
+            <p class="hidden js-notice">
+                <span class="js-notice-text"></span>
+            </p>
+            <button type="submit" id="review-form-submit">Submit Review</button>
+        </form>
+    </div>
+</div>

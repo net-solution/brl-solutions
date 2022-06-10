@@ -1,0 +1,17 @@
+---
+layout: default
+title: Projects
+class: review
+---
+
+<h1>Reviews</h1>
+
+<div class="testamonials">
+    {% for entry in site.data.reviews %}
+    <div class="review-container">
+        <span class="review-content">{{ entry[1].review }}</span>
+        <span class="review-author">{{ entry[1].name }}</span>
+        <span class="review-date">{{ entry[1].date | date: '%B %d %Y' }}</span>
+    </div>
+    {% endfor %}
+</div>

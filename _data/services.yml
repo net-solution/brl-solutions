@@ -20,3 +20,12 @@ services:
   - Fencing
   - Garden Gates
   - Driveway Gates
+
+timetable:
+  Mon: 9:00 AM - 6:00 PM
+  Tue: 9:00 AM - 6:00 PM
+  Wed: 9:00 AM - 6:00 PM
+  Thu: 9:00 AM - 6:00 PM
+  Fri: 9:00 AM - 6:00 PM
+  Sat: 10:00 AM - 4:00 PM
+  Sun: 10:00 AM - 4:00 PM

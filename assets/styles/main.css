@@ -2,7 +2,7 @@
 
 /** PALETTE **/
 :root {
-    --orange: #ff4032;
+    --secondary: #3aad00;
 }
 
 /** OVERRIDES **/
@@ -51,8 +51,10 @@ header {
     transition: 100ms;
 }
 .branding a:hover {
-    color: var(--orange);
-    fill: var(--orange);
+    color: var(--secondary);
+    fill: var(--secondary);
+}
+.branding .contact a:hover {
     text-decoration: underline;
 }
 .branding .contact .primary {
@@ -82,12 +84,26 @@ header {
 .branding .contact .spacer {
     margin: 0 5px;
 }
+.logo {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+.logo-text.sub {
+    font-weight: normal;
+    font-size: 1.3rem;
+}
 #logo {
     width: 100%;
     height: auto;
     max-width: 250px;
     transition: 100ms;
-    padding: 15px;
 }
 
 nav {
@@ -215,7 +231,7 @@ footer a:hover {
     text-decoration: underline;
 }
 .home-slideshow .description a:hover {
-    color: var(--orange);
+    color: var(--secondary);
 }
 .home-slideshow .slideshow {
     display: flex;
@@ -446,6 +462,7 @@ footer a:hover {
 
 .review-wrapper, .contact-wrapper {
     display: flex;
+    flex-wrap: wrap-reverse;
     justify-content: center;
     padding: 40px;
 }
@@ -470,7 +487,8 @@ footer a:hover {
     width: 100%;
     margin-bottom: 25px;
 }
-.home-contact p {
+.home-contact p,
+.home-contact h3 {
     margin: 0;
     margin-bottom: 25px;
 }
@@ -538,6 +556,38 @@ form select:hover {
 form input:focus,
 form textarea:focus {
     border: none;
+}
+
+.timetable-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    padding-left: 40px;
+    border-left: 1px solid #ddd;
+}
+.timetable-wrapper h3 {
+    font-size: 1.5rem;
+}
+.timetable {
+    align-self: center;
+    /* margin: auto 0; */
+    font-size: 1.3rem;
+}
+.timetable .day {
+    padding-right: 30px;
+}
+
+@media (max-width: 1465px) {
+    .timetable-wrapper {
+        width: 100%;
+        max-width: 1000px;
+        border-left: none;
+        margin-left: 0;
+        padding-left: 0;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #ddd;
+    }
 }
 
 /** SHARED STYLES **/
@@ -653,7 +703,7 @@ form textarea:focus {
     margin-right: 15px;
 }
 .link-button:hover {
-    background-color: var(--orange);
+    background-color: var(--secondary);
     color: white;
 }
 

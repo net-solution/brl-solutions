@@ -165,5 +165,16 @@ class: home
                 <button type="submit">Send</button>
             </form>
         </div>
+        <div class="timetable-wrapper">
+            <h3>Business Hours</h3>
+            <table class="timetable">
+                {% for day in site.data.services.timetable %}
+                    <tr>
+                        <td class="day">{{ day[0] }}:</td>
+                        <td>{{ day[1] }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
     </div>
 </div>

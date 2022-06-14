@@ -1,7 +1,9 @@
 <header>
     <div class="branding">
-        <a href="/">
+        <a class="logo" href="/">
             {% include graphics/brl-solutions-logo.svg %}
+            <span class="logo-text">BRL Solutions</span>
+            <span class="logo-text sub">Building Roofing & Landscaping</span>
         </a>
         <div class="contact">
             <div class="primary">
@@ -12,11 +14,6 @@
                         &#98;&#114;&#108;&#115;&#111;&#108;&#117;&#116;&#105;&#111;&#110;&#115;&#49;&#50;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;
                     </a>
                 </span>
-                <!-- <span class="eaddrfilter">
-                    <span class="u">{{ site.data.contact.email.name }}</span>
-                    [at]
-                    <span class="d">{{ site.data.contact.email.domain }} [dot] com</span>
-                </span> -->
             </div>
             <div class="secondary">
                 {% for media in site.data.contact.social %}
